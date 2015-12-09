@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+const path = require( 'path' )
+
+const soos = require( '../' )
+
+const packageConfig = require( path.resolve( process.cwd(), 'package.json' ) )
+
+const exampleText = 'soos -i && soos -b && soos -c bash';
+const exampleWillDoText = 'Will build docker image and then start docker machine with bash';
+
+const argv = require( 'yargs' )
+    .usage( 'Usage: $0 [options]' )
+    .option( 'init', {
+      alias: 'i',
+      describe: 'add dockerfile',
+      type: 'boolean'
+    })
+    .option( 'build', {
+      alias: 'b',
+      describe: 'build docker machine',
+      type: 'boolean'
+    })
+    .option( 'command', {
+      alias: 'c',
+      describe: 'command to run inside of docker',
+      type: 'array'
+    })
+    .example( exampleText, exampleWillDoText )
+    .help( 'help' )
+    .alias( 'help', 'h' )
+    .argv;
+
+process.title = 'soos'
+
+if ( argv.init ) {
+
+  soos.dockerfileInit( packageConfig );
+
+} else if ( argv.build ) {
+
+  soos.dockerBuild( packageConfig );
+
+} else {
+
+  soos.dockerRun( packageConfig, argv.command );
+
+}

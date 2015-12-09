@@ -1,0 +1,36 @@
+{
+  "name": "soos",
+  "version": "1.0.0",
+  "description": "Docker Managed NPM",
+  "main": "index.js",
+  "bin": {
+    "soos": "bin/soos"
+  },
+  "scripts": {
+    "test": "ava **/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngParty/ndm.git"
+  },
+  "keywords": [
+    "npm",
+    "docker"
+  ],
+  "author": "@elmariofredo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ngParty/ndm/issues"
+  },
+  "homepage": "https://github.com/ngParty/ndm#readme",
+  "devDependencies": {
+    "ava": "^0.7.0"
+  },
+  "dependencies": {
+    "shasum": "^1.0.2",
+    "yargs": "^3.31.0"
+  },
+  "engines": {
+    "node": ">=5.1.1"
+  }
+}
