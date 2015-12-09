@@ -15,6 +15,7 @@ module.exports = {
   createImageName: createImageName,
   dockerfileInit: dockerfileInit,
   dockerBuild: dockerBuild,
+  dockerPush: dockerPush,
   dockerRun: dockerRun
 }
 
@@ -125,6 +126,22 @@ function dockerBuild( packageConfig ) {
     `-t`,
     `${createImageName( packageConfig )}`,
     `.`
+  ]
+
+  return execCommand( proc, args )
+
+}
+
+/**
+ * Execute docker push command
+ * @param {Object} packageConfig
+ */
+function dockerPush( packageConfig ) {
+
+  const proc = `docker`
+  const args = [
+    `push`,
+    `${createImageName( packageConfig )}`
   ]
 
   return execCommand( proc, args )

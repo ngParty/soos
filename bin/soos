@@ -18,13 +18,23 @@ const argv = require( 'yargs' )
     })
     .option( 'build', {
       alias: 'b',
-      describe: 'build docker machine',
+      describe: 'build docker image',
+      type: 'boolean'
+    })
+    .option( 'push', {
+      alias: 'P',
+      describe: 'push docker image',
       type: 'boolean'
     })
     .option( 'command', {
       alias: 'c',
       describe: 'command to run inside of docker',
       type: 'array'
+    })
+    .option( 'shell', {
+      alias: 's',
+      describe: 'run bash command inside of docker',
+      type: 'boolean'
     })
     .option( 'port', {
       alias: 'p',
@@ -40,14 +50,27 @@ process.title = 'soos'
 
 if ( argv.init ) {
 
-  soos.dockerfileInit( packageConfig );
+  soos.dockerfileInit( packageConfig )
 
 } else if ( argv.build ) {
 
-  soos.dockerBuild( packageConfig );
+  soos.dockerBuild( packageConfig )
+
+} else if ( argv.push ) {
+
+  soos.dockerPush( packageConfig )
 
 } else {
 
-  soos.dockerRun( packageConfig, argv );
+  // Run shell if specified
+  if ( argv.shell ) {
+
+    Object.assign( argv, {
+      command: [ 'bash' ]
+    } )
+
+  }
+
+  soos.dockerRun( packageConfig, argv )
 
 }

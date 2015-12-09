@@ -31,23 +31,35 @@ https://www.docker.com/docker-toolbox
 
 `$ soos -b`
 
+## Publish docker image
+
+`$ soos -b`
+
 ## Start docker machine
 
 `$ soos`
 
-## Start docker machine with bash shell and with forwarded port 8080
+## Start docker machine
+
+with `bash` shell and with forwarded port `8080`
 
 `$ soos -c bash -p 8080`
+
+or
+
+`$ soos -s -p 8080`
 
 ---
 
 ```
-Usage: /Users/mario/Github/ngParty/ndm/bin/soos [options]
+Usage: soos [options]
 
 Options:
   --init, -i     add dockerfile                                        [boolean]
-  --build, -b    build docker machine                                  [boolean]
+  --build, -b    build docker image                                    [boolean]
+  --push, -P     push docker image                                     [boolean]
   --command, -c  command to run inside of docker                         [array]
+  --shell, -s    run bash command inside of docker                     [boolean]
   --port, -p     port forwarding                                        [string]
   --help, -h     Show help                                             [boolean]
 
