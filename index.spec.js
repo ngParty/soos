@@ -18,8 +18,8 @@ test( 'createPackageName', t => {
 
   const packageConfigScopeOverride = {
     name: '@fredo/test',
-    ndm: {
-      scope: 'mario'
+    config: {
+      dockerScope: 'mario'
     }
   }
 

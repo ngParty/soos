@@ -26,6 +26,11 @@ const argv = require( 'yargs' )
       describe: 'command to run inside of docker',
       type: 'array'
     })
+    .option( 'port', {
+      alias: 'p',
+      describe: 'port forwarding',
+      type: 'string'
+    })
     .example( exampleText, exampleWillDoText )
     .help( 'help' )
     .alias( 'help', 'h' )
@@ -43,6 +48,6 @@ if ( argv.init ) {
 
 } else {
 
-  soos.dockerRun( packageConfig, argv.command );
+  soos.dockerRun( packageConfig, argv );
 
 }

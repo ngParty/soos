@@ -33,11 +33,11 @@ function createPackageName( packageConfig ) {
   let packageConfigScope = packageConfigNameList[ 2 ]
 
   if (
-    packageConfig.ndm &&
-    packageConfig.ndm.scope
+    packageConfig.config &&
+    packageConfig.config.dockerScope
   ) {
 
-    packageConfigScope = packageConfig.ndm.scope
+    packageConfigScope = packageConfig.config.dockerScope
 
   }
 
@@ -79,15 +79,13 @@ function createImageName( packageConfig ) {
  */
 function dockerfileInit() {
 
-  // console.log(process.env.OLDPWD)
-
   const targetDockerfilePath = path.resolve( process.env.PWD, 'Dockerfile' )
   const writeStream = fs.createWriteStream( targetDockerfilePath )
   writeStream.on("error", _reportError )
 
 
   const sourceDockerfilePath = path.resolve( __dirname, 'Dockerfile' )
-  
+
   const readStream = fs.createReadStream( sourceDockerfilePath )
     .pipe( writeStream )
   readStream.on("error", _reportError )
@@ -138,15 +136,16 @@ function dockerBuild( packageConfig ) {
  * @param {Object} packageConfig
  * @param {string[]} command
  */
-function dockerRun( packageConfig, command ) {
+function dockerRun( packageConfig, cmdArgs ) {
 
   // Make npm start default command
   if (
-    command === undefined ||
-    command.length === 0
+    cmdArgs === undefined ||
+    cmdArgs.command === undefined ||
+    cmdArgs.command.length === 0
   ) {
 
-    command = [
+    cmdArgs.command = [
       NPM_BIN_PATH,
       `start`
     ]
@@ -154,13 +153,32 @@ function dockerRun( packageConfig, command ) {
   }
 
   const proc = `docker`
-  const args = [
+
+  let args = [
     `run`,
     `-it`,
     `-v`,
-    `${process.cwd()}:/srv`,
-    `${createImageName( packageConfig )}`,
-  ].concat( command )
+    `${process.cwd()}:/srv`
+  ]
+
+  // Forward port if defined in package.json or in commandline
+  if (
+    ( packageConfig.config && packageConfig.config.port ) ||
+    cmdArgs.port
+  ) {
+
+    const port = ( cmdArgs.port || packageConfig.config.port )
+
+    args = args.concat(
+      '-p',
+      `${port}:${port}`
+    )
+
+  }
+
+  args = args
+    .concat( `${createImageName( packageConfig )}` )
+    .concat( cmdArgs.command )
 
   return execCommand( proc, args )
 
