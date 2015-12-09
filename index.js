@@ -86,7 +86,8 @@ function dockerfileInit() {
   writeStream.on("error", _reportError )
 
 
-  const sourceDockerfilePath = path.resolve( process.env.OLDPWD, 'Dockerfile' )
+  const sourceDockerfilePath = path.resolve( __dirname, 'Dockerfile' )
+  
   const readStream = fs.createReadStream( sourceDockerfilePath )
     .pipe( writeStream )
   readStream.on("error", _reportError )
