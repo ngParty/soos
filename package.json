@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngParty/ndm.git"
+    "url": "git+https://github.com/ngParty/soos.git"
   },
   "keywords": [
     "npm",
@@ -20,9 +20,9 @@
   "author": "@elmariofredo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ngParty/ndm/issues"
+    "url": "https://github.com/ngParty/soos/issues"
   },
-  "homepage": "https://github.com/ngParty/ndm#readme",
+  "homepage": "https://github.com/ngParty/soos#readme",
   "devDependencies": {
     "ava": "^0.7.0"
   },
