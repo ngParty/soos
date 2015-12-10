@@ -1,6 +1,6 @@
 {
   "name": "soos",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Docker Managed NPM",
   "main": "index.js",
   "bin": {
