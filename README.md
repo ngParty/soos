@@ -1,6 +1,8 @@
 Docker Managed NPM
 ==================
 
+[![Build Status](https://travis-ci.org/ngParty/soos.svg?branch=master)](https://travis-ci.org/ngParty/soos)
+
 ## Why another strange named thingy? Why?
 
 Because `npm install` is slow and I mean terribly slow when you try to use it properly with Docker for development.
