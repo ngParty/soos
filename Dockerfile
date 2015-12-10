@@ -2,7 +2,7 @@ FROM node
 
 ENV NODE_PATH /usr/lib/node_modules
 
-ENV PATH $PATH:./node_modules/.bin
+ENV PATH $PATH:./node_modules/.bin:/usr/lib/node_modules/.bin
 
 WORKDIR /srv
 
