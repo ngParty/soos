@@ -31,9 +31,9 @@ https://www.docker.com/docker-toolbox
 
 `$ soos -b`
 
-## Publish docker image
+## Push/Publish docker image to http://hub.docker.com
 
-`$ soos -b`
+`$ soos -P`
 
 ## Start docker machine
 
