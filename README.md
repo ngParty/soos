@@ -35,11 +35,11 @@ https://www.docker.com/docker-toolbox
 
 `$ soos -P`
 
-## Start docker machine
+## Start docker container with npm install
 
 `$ soos`
 
-## Start docker machine
+## Start docker container
 
 with `bash` shell and with forwarded port `8080`
 
