@@ -12,7 +12,7 @@ before_install:
 
 install:
   - soos -b
-  - soos -p
+  - soos -P
 
 script:
   - soos -c /usr/local/bin/npm test
