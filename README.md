@@ -14,7 +14,7 @@ Which means that you should run `npm install`, every time you will create Docker
 soos will do following
 
 - Initalize Dockerfile for your project
-- Build docker image with node_modules backed in and will use shasum of `package.json` file as docker image tag, so you can easily switch between revisions
+- Build docker image with node_modules backed in and will use shasum of `package.json` file as docker image tag, so you can easily switch between revisions ( see list of Soos own Docker images https://hub.docker.com/r/ngparty/soos/tags/ )
 - Run docker container for your specific `package.json`
 
 ## !!! Setup Docker Toolbox on your machine first !!!
