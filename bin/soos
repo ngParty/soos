@@ -50,7 +50,7 @@ process.title = 'soos'
 
 if ( argv.init ) {
 
-  soos.dockerfileInit( packageConfig )
+  soos.init( packageConfig )
 
 } else if ( argv.build ) {
 

@@ -13,7 +13,7 @@ const NPM_BIN_PATH = `/usr/local/bin/npm`
 module.exports = {
   createPackageName: createPackageName,
   createImageName: createImageName,
-  dockerfileInit: dockerfileInit,
+  init: init,
   dockerBuild: dockerBuild,
   dockerPush: dockerPush,
   dockerRun: dockerRun
@@ -76,24 +76,31 @@ function createImageName( packageConfig ) {
 }
 
 /**
+ * Copy Dockerfile and .dockerignore to project structure
+ */
+function init() {
+
+  copyFile( 'Dockerfile' )
+  copyFile( '.dockerignore' )
+
+}
+
+/**
  * Copy dockerfile to project structure
  */
-function dockerfileInit() {
+function copyFile( fileName ) {
 
-  const targetDockerfilePath = path.resolve( process.env.PWD, 'Dockerfile' )
-  const writeStream = fs.createWriteStream( targetDockerfilePath )
-  writeStream.on("error", _reportError )
+  const targetFilePath = path.resolve( process.env.PWD, fileName )
+  const writeStream = fs.createWriteStream( targetFilePath )
+  writeStream.on( 'error', _reportError )
 
-
-  const sourceDockerfilePath = path.resolve( __dirname, 'Dockerfile' )
-
-  const readStream = fs.createReadStream( sourceDockerfilePath )
-    .pipe( writeStream )
-  readStream.on("error", _reportError )
+  const sourceFilePath = path.resolve( __dirname, fileName )
+  const readStream = fs.createReadStream( sourceFilePath ).pipe( writeStream )
+  readStream.on( 'error', _reportError )
 
   function _reportError( err ) {
 
-    console.error( err )
+    throw Error( err )
 
   }
 
@@ -105,6 +112,8 @@ function dockerfileInit() {
  * @param {string[]} args arguments for executed command
  */
 function execCommand( cmd, args ) {
+
+  console.log( `EXEC: ${cmd} ${args.join( ' ' )}` )
 
   return spawn( cmd, args, {
     env: process.env,
