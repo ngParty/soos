@@ -8,6 +8,7 @@ node_js:
   - '4.1.2'
 
 before_install:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - npm install soos -g
 
 install:
