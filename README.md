@@ -1,4 +1,4 @@
-[Docker Managed NPM](https://www.youtube.com/watch?v=XiuRv8RgaFk)
+[Soos Docker Managed NPM](https://www.youtube.com/watch?v=XiuRv8RgaFk)
 ==================
 
 [![Build Status](https://travis-ci.org/ngParty/soos.svg?branch=master)](https://travis-ci.org/ngParty/soos)
