@@ -1,7 +1,18 @@
+sudo: required
+
+services:
+  - docker
+
 language: node_js
 node_js:
   - '4.1.2'
+
+before_install:
+  - npm install soos -g
+
 install:
-  - npm install
+  - soos -b
+  - soos -p
+
 script:
-  - npm test
+  - soos -c /usr/local/bin/npm test
