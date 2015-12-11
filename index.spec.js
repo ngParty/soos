@@ -25,7 +25,7 @@ test( 'createPackageName', t => {
 
   t.is( createPackageName( packageConfigScopeOverride ), 'mario/test' )
 
-})
+} )
 
 test( 'createImageName', t => {
 
@@ -37,4 +37,4 @@ test( 'createImageName', t => {
 
   t.is( generatedImageName, 'elmariofredo/test:254835b8e48acde5c6630d2b2f17231066156a2b' )
 
-})
+} )

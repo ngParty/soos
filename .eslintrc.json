@@ -1,0 +1,11 @@
+{
+    "extends": "standard",
+    "plugins": [
+        "standard"
+    ],
+    "rules": {
+      "space-in-parens": [ 2, "always" ],
+      "space-before-function-paren": [ 2, "never" ],
+      "padded-blocks": [ 2, "always" ]
+    }
+}

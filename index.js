@@ -3,9 +3,7 @@
 const shasum = require( 'shasum' )
 const spawn = require( 'child_process' ).spawn
 const path = require( 'path' )
-const fs = require('fs')
-
-const packageConfig = require( path.resolve( process.cwd(), 'package.json' ) )
+const fs = require( 'fs' )
 
 const PACKAGE_NAME_EXTRACT_EXP = RegExp( '(@(.*)\/)?(.*)' )
 const NPM_BIN_PATH = `/usr/local/bin/npm`
@@ -119,7 +117,7 @@ function execCommand( cmd, args ) {
     env: process.env,
     cwd: process.env.PWD,
     stdio: [ 'inherit', process.stdout, process.stdout ]
-  })
+  } )
 
 }
 

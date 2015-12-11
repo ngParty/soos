@@ -10,7 +10,7 @@
     "soos": "bin/soos"
   },
   "scripts": {
-    "test": "ava **/*.spec.js"
+    "test": "eslint . && ava **/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,10 @@
   },
   "homepage": "https://github.com/ngParty/soos#readme",
   "devDependencies": {
-    "ava": "^0.7.0"
+    "ava": "^0.7.0",
+    "eslint": "^1.10.3",
+    "eslint-config-standard": "^4.4.0",
+    "eslint-plugin-standard": "^1.3.1"
   },
   "dependencies": {
     "shasum": "^1.0.2",
