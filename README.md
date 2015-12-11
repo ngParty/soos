@@ -27,29 +27,29 @@ https://www.docker.com/docker-toolbox
 
 ## Init
 
-`$ soos -i`
+`Your/Project $ soos -i`
 
 ## Build docker image
 
-`$ soos -b`
+`Your/Project $ soos -b`
 
 ## Push/Publish docker image to http://hub.docker.com
 
-`$ soos -P`
+`Your/Project $ soos -P`
 
 ## Start docker container with npm install
 
-`$ soos`
+`Your/Project $ soos`
 
 ## Start docker container
 
 with `bash` shell and with forwarded port `8080`
 
-`$ soos -c bash -p 8080`
+`Your/Project $ soos -c bash -p 8080`
 
 or
 
-`$ soos -s -p 8080`
+`Your/Project $ soos -s -p 8080`
 
 ---
 
