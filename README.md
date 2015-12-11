@@ -1,5 +1,7 @@
-[Soos - Docker Managed NPM](https://www.youtube.com/watch?v=XiuRv8RgaFk)
+[Soos](https://www.youtube.com/watch?v=XiuRv8RgaFk)
 ==================
+
+Docker driven development
 
 [![Build Status](https://travis-ci.org/ngParty/soos.svg?branch=master)](https://travis-ci.org/ngParty/soos)
 [![npm version](https://badge.fury.io/js/soos.svg)](https://badge.fury.io/js/soos)
