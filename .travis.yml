@@ -9,9 +9,9 @@ node_js:
 
 before_install:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - npm install soos -g
 
 install:
+  - npm install -g
   - soos -b
   - soos -P
 
