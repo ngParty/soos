@@ -12,6 +12,8 @@ Because `npm install` is slow and I mean terribly slow when you try to use it pr
 
 Which means that you should run `npm install` every time you will create Docker container, or change branch, to have truly clean environment. When you have Docker images with `node_modules` baked in, you can skip this step and avoid all `npm install` issues. Only tricky part is how to build these images and how to mark them, so you, fellow developers and ci servers can reuse them and that's moment when Soon comes into the game. 
 
+Using Soos will simplify all of that and allow you to start right Docker image with right data with single command in miliseconds. As a bonus you are forced into Docker driven development, which is speeding up onboarding and preventing issues caused by different environment setup.
+
 ## What it does then?
 
 Soos will do following
