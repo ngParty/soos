@@ -10,9 +10,9 @@ Docker driven development
 
 Because `npm install` is slow and I mean terribly slow when you try to use it properly with Docker for development.
 
-Which means that you should run `npm install` every time you will create Docker container, or change branch, to have truly clean environment. When you have Docker images with `node_modules` baked in, you can skip this step and avoid all `npm install` issues. Only tricky part is how to build these images and how to mark them, so you, fellow developers and ci servers can reuse them and that's moment when Soon comes into the game. 
+Which means that you should run `npm install` every time you will create Docker container, or change branch, to have truly clean environment. When you have Docker images with `node_modules` baked in, you can skip this step and avoid all `npm install` issues. Only tricky part is how to build and run these images and how to mark them, so you, fellow developers and ci servers can reuse them. 
 
-Using Soos will simplify all of that and allow you to start right Docker image with right data with single command in miliseconds. As a bonus you are forced into Docker driven development, which is speeding up onboarding and preventing issues caused by different environment setup.
+Using Soos will simplify all of that, apart from building image it will also allow you to run image with right `node_modules` with single command in miliseconds. As a bonus you are forced into Docker driven development, which is speeding up onboarding and preventing issues caused by different environment setup.
 
 ## What it does then?
 
