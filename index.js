@@ -155,6 +155,7 @@ function dockerPush( packageConfig ) {
 
 }
 
+
 /**
  * Run docker run with specified command
  * @param {Object} packageConfig
@@ -162,27 +163,14 @@ function dockerPush( packageConfig ) {
  */
 function dockerRun( packageConfig, cmdArgs ) {
 
-  // Make npm start default command
-  if (
-    cmdArgs === undefined ||
-    cmdArgs.command === undefined ||
-    cmdArgs.command.length === 0
-  ) {
-
-    cmdArgs.command = [
-      NPM_BIN_PATH,
-      `start`
-    ]
-
-  }
-
   const proc = `docker`
 
   let args = [
     `run`,
-    `-it`,
-    `-v`,
-    `${process.cwd()}:/srv`
+    `--volume=${ process.cwd() }:/srv`,
+    `--volume=/data/${ createPackageName( packageConfig ) }:/data/${ createPackageName( packageConfig ) }`,
+    `--interactive`,
+    `--tty`
   ]
 
   // Forward port if defined in package.json or in commandline
@@ -202,7 +190,16 @@ function dockerRun( packageConfig, cmdArgs ) {
 
   args = args
     .concat( `${createImageName( packageConfig )}` )
-    .concat( cmdArgs.command )
+
+  if (
+    cmdArgs.command !== undefined &&
+    cmdArgs.command.length
+  ) {
+
+    args = args.concat( cmdArgs.command )
+
+  }
+
 
   return execCommand( proc, args )
 

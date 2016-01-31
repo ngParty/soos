@@ -6,10 +6,8 @@ ENV PATH $PATH:./node_modules/.bin:/usr/lib/node_modules/.bin
 
 WORKDIR /srv
 
-VOLUME /srv
-
-CMD npm start
+ENTRYPOINT /usr/local/bin/npm start
 
 COPY ./package.json /usr/lib/
 
-RUN cd /usr/lib/ && npm i
+RUN cd /usr/lib/ && /usr/local/bin/npm i
