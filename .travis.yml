@@ -17,3 +17,11 @@ install:
 
 script:
   - soos -c /usr/local/bin/npm test
+
+notifications:
+  email: false
+after_success:
+  - npm run semantic-release
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"
