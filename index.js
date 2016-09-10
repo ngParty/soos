@@ -167,7 +167,7 @@ function dockerRun( packageConfig, cmdArgs ) {
 
   let args = [
     `run`,
-    `--volume=${ process.cwd() }:/srv`,
+    `--volume=${ process.cwd() }:/app/dev`,
     `--interactive`,
     `--tty`
   ]
