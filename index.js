@@ -168,7 +168,6 @@ function dockerRun( packageConfig, cmdArgs ) {
   let args = [
     `run`,
     `--volume=${ process.cwd() }:/srv`,
-    `--volume=/data/${ createPackageName( packageConfig ) }:/data/${ createPackageName( packageConfig ) }`,
     `--interactive`,
     `--tty`
   ]
