@@ -20,9 +20,9 @@ Soos will do following
 
 - Initalize `Dockerfile` and `.dockerignore` for your project
 - Build docker image with `node_modules` baked in and will use shasum of `package.json` file as docker image tag, so you can easily switch between revisions ( see list of Soos own Docker images https://hub.docker.com/r/ngparty/soos/tags/ )
-- Run docker container for your specific `package.json`
+- Run docker container for your specific `package.json`, again using shasum of your package.json
 
-## !!! Setup [Docker Toolbox](https://www.docker.com/docker-toolbox) on your machine first !!!
+## !!! Setup [Docker Mac](https://docs.docker.com/docker-for-mac/) or [Docker Windows](https://docs.docker.com/docker-for-windows/) on your machine first !!!
 
 ## Install
 
