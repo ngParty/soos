@@ -6,6 +6,10 @@ Docker driven development
 [![Build Status](https://travis-ci.org/ngParty/soos.svg?branch=master)](https://travis-ci.org/ngParty/soos)
 [![npm version](https://badge.fury.io/js/soos.svg)](https://badge.fury.io/js/soos)
 
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/TisExScrCtn5bmztNJ6ApMfK/ngParty/soos'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/TisExScrCtn5bmztNJ6ApMfK/ngParty/soos.svg' />
+</a>
+
 ## Why another strange named thingy? Why?
 
 Because `npm install` is slow and I mean terribly slow when you try to use it properly with Docker for development.
